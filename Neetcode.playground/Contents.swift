@@ -73,4 +73,30 @@ containsDuplicate([2,14,18,22,22,22,22])
 //    return false
 //}
 
+// Others 
+
+// Find closest number to zero
+
+// TEST CASES
+findClosestNumber([-4,-2,1,4,8])
+
+func findClosestNumber(_ nums: [Int]) -> Int {
+    var closest = nums[0]
+
+    for i in nums {
+      if abs(i) < abs(closest) {
+        closest = i
+      }
+    }
+
+    // if closest negative, check if there's a positive
+    if closest < 0, nums.contains(abs(closest)) {
+        return abs(closest)
+    }  else {
+        return closest
+    }
+}
+    
+// Time complexity: n + n = 2n -> O(2n) = O(n)
+
 
